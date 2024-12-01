@@ -142,7 +142,7 @@ public class ArrCharOps {
          int n = arr.length;
          long hash = 0;
 
-         for (int i = 0; i < n - 1; i++) {
+         for (int i = 0; i < n ; i++) {
              hash += (arr[i] * (Math.pow (7, (n-i-1))));
          }
          return hash;
@@ -181,7 +181,7 @@ public class ArrCharOps {
         else if (str2.length() > str1.length()) {
             return -1;
         }
-        else {
+        else if (str1.length() == str2.length()) {
             for (int i = 0; i < str1.length(); i++) {
                 if (str1.charAt (i) > str2.charAt (i)) {
                     return 1;
@@ -190,8 +190,9 @@ public class ArrCharOps {
                     return -1;
                 }
             }
+            return 0;
         }
-        return 0;
+        return -2;
     }
 }
 
