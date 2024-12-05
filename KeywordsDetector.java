@@ -18,9 +18,38 @@ public class KeywordsDetector {
         detectAndPrint(sentences, keywords);
     }
 
+    public static String lowerCase(String str) {
+        int lenth = str.length();
+        String newStr = "";
+        for (int i = 0; i < lenth; i++) {
+            if (str.charAt(i) >= 'A' && str.charAt(i) <= 'Z') {
+                newStr = newStr + (char) (str.charAt(i) + 32);
+            } else if (str.charAt(i) >= 'a' && str.charAt(i) <= 'z') {
+                newStr = newStr + (str.charAt(i));
+            } else {
+                newStr = newStr + (str.charAt(i));
+            }
+        }
+        return newStr;
+    }
+
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+
+       String [] originalSentences = sentences;
+        for (int i = 0 ; i < sentences.length; i++) {
+            sentences [i] = lowerCase(sentences [i]);
+            }
+
+        for (int j = 0; j < keywords.length; j++) {
+
+            for(int t = 0; t <sentences.length; t++) {
+                if (sentences [t] == keywords[j]) {
+                    System.out.println(originalSentences);
+                    break;
+                }
+            }
+        }
     }
 }
